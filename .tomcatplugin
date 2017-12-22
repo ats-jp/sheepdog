@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>/webapp</rootDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>true</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation></warLocation>
+    <extraInfo>%3CRealm+className%3D%22jp.ats.authenticator.AuthenticatorRealm%22%2F%3E%0D%0A%3CResource%0D%0A%09name%3D%22jdbc%2Fdatasource%22%0D%0A%09auth%3D%22Container%22%0D%0A%09type%3D%22javax.sql.DataSource%22%0D%0A%09factory%3D%22org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory%22%0D%0A%09driverClassName%3D%22org.postgresql.Driver%22%0D%0A%09url%3D%22jdbc%3Apostgresql%3A%2F%2Flocalhost%2F%22%0D%0A%09username%3D%22XXX%22%0D%0A%09password%3D%22XXX%22%0D%0A%09maxActive%3D%225%22%0D%0A%09maxIdle%3D%225%22%0D%0A%09maxWait%3D%22-1%22%0D%0A%09validationQuery%3D%22select+current_timestamp%22%0D%0A%09testOnBorrow%3D%22false%22%0D%0A%09testOnReturn%3D%22false%22%0D%0A%09testWhileIdle%3D%22true%22%0D%0A%09timeBetweenEvictionRunsMillis%3D%2260000%22%0D%0A%09numTestsPerEvictionRun%3D%225%22%0D%0A%09minEvictableIdleTimeMillis%3D%22300000%22%0D%0A%2F%3E</extraInfo>
+    <webPath>ats-groupwear</webPath>
+</tomcatProjectProperties>

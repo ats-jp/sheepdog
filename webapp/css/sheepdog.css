@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+.clear {
+	clear: both;
+}
+
+.parentCommentHeader {
+	font-size: 90%;
+	color: #999;
+}
+
+.deletedComment {
+	font-size: 90%;
+	color: #999;
+}
+
+.groupMember {
+	background-color: pink;
+}
+
+.sealedThread {
+	background-color: pink;
+}
+
+.sealedComment {
+	background-color: pink;
+}
+
+a.blockLink {
+	display: block;
+}
+
+#newNoticeDeleteLink {
+	position: absolute;
+	display: inline-block;
+	top: 3px;
+	right: 3px;
+}
+
+.functionalLink:link, .functionalLink:visited {
+	color: #999;
+	text-decoration: none;
+}
+
+.functionalLink:hover, .functionalLink:active {
+	color: #f33;
+    text-decoration: underline;
+}
+
+.commentDeleteButton {
+	float: right;
+	margin-right: 5px;
+}
+
+.replyTo {
+	margin: 2px 0 4px;
+}
+
+.replyTo a {
+	background-color: #d0e0f3;	
+	color: #999;
+	text-decoration: none;
+}
+
+.replyTo a:hover .replyNumber {
+	color: #f33;
+	text-decoration: underline;
+}
+
+.replyLink {
+	margin: 4px 0 2px;
+}
+
+.commentTimestamp {
+	color: #999;
+}
+
+input, select, textarea, button {
+	border: 1px solid #999;
+}
+
+textarea {
+	width: 400px;
+	height: 100px;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], button {
+	height: 20px;
+	margin: 0px;
+	padding: 0px;
+}
+
+table.nowrapTable th, table.nowrapTable td {
+	white-space: nowrap;
+}
+
+table.sheepdogTable th, table.sheepdogTable td {
+	border: 1px solid #999;
+	padding: 5px;
+	white-space: nowrap;
+}
+
+table.sheepdogTable th {
+	background-color: #ccc;
+	color: white;
+	text-shadow: #555 2px 3px 5px;
+}
+
+dt {
+	font-weight: bold;
+	font-size: 120%;
+	background-color: #ddd;
+}
+
+dd {
+	padding: 5px 0 10px 20px;
+}
+
+div.pagerArea {
+	margin-top: 5px;
+	text-align: center;
+}
+
+input.submitButton {
+	float: right;
+}
+
+.validationMessageBottomCell {
+	height: 32px;
+}
+
+.validationMessageBottomElement {
+	vertical-align: top;
+}

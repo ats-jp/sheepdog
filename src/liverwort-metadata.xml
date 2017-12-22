@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<liverwort-metadata-extension>
+	<table name="v_thread">
+		<primary-key name="v_thread_pkey">
+			<column name="thread_id" />
+		</primary-key>
+		<foreign-key name="v_thread_owner_fkey" references="t_user">
+			<column name="owner" />
+		</foreign-key>
+		<foreign-key name="v_thread_group_id_fkey" references="t_group">
+			<column name="group_id" />
+		</foreign-key>
+	</table>
+
+	<table name="v_comment_relationship">
+		<primary-key name="v_comment_relationship_pkey">
+			<column name="comment_id" />
+		</primary-key>
+		<foreign-key name="v_comment_relationship_thread_id_fkey" references="t_thread">
+			<column name="thread_id" />
+		</foreign-key>
+	</table>
+
+	<table name="t_comment">
+		<foreign-key name="t_comment_id_fkey" references="v_comment_relationship">
+			<column name="id" />
+		</foreign-key>
+	</table>
+</liverwort-metadata-extension>

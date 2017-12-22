@@ -1,0 +1,26 @@
+<Context path="ats-groupwear" reloadable="true">
+<!-- Extra info begin -->
+<Realm className="jp.ats.authenticator.AuthenticatorRealm"/>
+<Resource
+	name="jdbc/datasource"
+	auth="Container"
+	type="javax.sql.DataSource"
+	factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+	driverClassName="[[jdbc-driver]]"
+	url="[[jdbc-url]]"
+	username="[[jdbc-username]]"
+	password="[[jdbc-password]]"
+	maxActive="5"
+	maxIdle="5"
+	maxWait="-1"
+	validationQuery="select current_timestamp"
+	testOnBorrow="false"
+	testOnReturn="false"
+	testWhileIdle="true"
+	timeBetweenEvictionRunsMillis="60000"
+	numTestsPerEvictionRun="5"
+	minEvictableIdleTimeMillis="300000"
+/>
+<!-- Extra info end -->
+	<Logger className="org.apache.catalina.logger.SystemOutLogger" verbosity="4" timestamp="true"/>
+</Context>

@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+#minipopup {
+	padding: 10px;
+	background-color: #ffd;
+	border: 1px solid #000;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+#minipopupOutfield {
+	zoom: 1.0; /*IE*/
+	filter: alpha(opacity=0); /*IE*/
+	opacity: 0;
+	background-color: black;
+}

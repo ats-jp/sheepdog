@@ -1,0 +1,17 @@
+enable-log=false
+
+log-stacktrace-filter=
+
+column-repository-factory-class=jp.ats.liverwort.extension.SimpleColumnRepositoryFactory
+
+file-repository=
+
+exceptionmail=
+
+jdbc-driver=org.postgresql.Driver
+
+jdbc-url=jdbc:postgresql://localhost/
+
+jdbc-username=postgres
+
+jdbc-password=password

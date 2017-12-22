@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dexter-form-config fixed="true">
+	<element id="newMailAddress" required="false" pattern="false">
+		<name>newMailAddress</name>
+		<description>新メールアドレス</description>
+		<validators>
+			<validator class="jp.ats.webkit.dexter.validator.RegexValidator">
+				<param property="regex" value="^[^@]+@[^@]+$" />
+				<param property="name" value="メールアドレス検査" />
+				<param property="description" value="メールアドレスであるか検査します" />
+				<param property="validationMessage" value="メールアドレスではありません" />
+			</validator>
+			<validator class="jp.ats.sheepdog.admin.UserValidator" />
+		</validators>
+	</element>
+
+	<element id="name" required="true" pattern="false">
+		<name>name</name>
+		<description>名前</description>
+		<validators>
+		</validators>
+	</element>
+
+	<element id="role" required="true" pattern="false">
+		<name>role</name>
+		<description>権限</description>
+		<validators>
+		</validators>
+	</element>
+
+	<element id="expirationDate" required="false" pattern="false">
+		<name>expirationDate</name>
+		<description>パスワードの有効期限</description>
+		<validators>
+			<validator class="jp.ats.webkit.dexter.validator.DateValidator">
+				<param property="format" value="yyyy/MM/dd" />
+			</validator>
+		</validators>
+	</element>
+</dexter-form-config>

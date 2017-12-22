@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="**/.svn/" kind="src" output="webapp/WEB-INF/classes" path="src"/>
+	<classpathentry excluding="**/.svn/" kind="src" path="tool"/>
+	<classpathentry excluding="**/.svn/" kind="src" path="auth"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="**/.svn/" kind="src" path="jspwork">
+		<attributes>
+			<attribute name="ignore_optional_problems" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/liverwort.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/substrate.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/webkit.jar"/>
+	<classpathentry kind="lib" path="dependencies/postgresql.jar"/>
+	<classpathentry kind="lib" path="dependencies/el-api.jar"/>
+	<classpathentry kind="lib" path="dependencies/jasper.jar"/>
+	<classpathentry kind="lib" path="dependencies/jsp-api.jar"/>
+	<classpathentry kind="lib" path="dependencies/servlet-api.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-io.jar"/>
+	<classpathentry kind="lib" path="dependencies/authenticator.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/authenticator-rt.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

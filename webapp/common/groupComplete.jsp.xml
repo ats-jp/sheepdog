@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dexter-form-config fixed="true">
+	<element id="name" required="true" pattern="false">
+		<name>name</name>
+		<description>グループ名</description>
+		<validators>
+		</validators>
+	</element>
+
+	<element id="applyingLevel" required="true" pattern="false">
+		<name>applyingLevel</name>
+		<description>公開レベル</description>
+		<validators>
+		</validators>
+	</element>
+</dexter-form-config>

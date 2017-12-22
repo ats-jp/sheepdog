@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+.sheepdogPane {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+}
+
+.clear {
+	clear: both;
+}
+
+#leftPane {
+	top: 33px;
+	left: 0;
+	width: 120px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+}
+
+#menuPane {
+	z-index: 1; /*IE*/
+	top: 0;
+	left: 120px;
+	height: 33px;
+	background: #444;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+}
+
+#mainPane {
+	top: 33px;
+	left: 120px;
+}
+
+#footerPane {
+	text-align: center;
+	padding: 10px;
+	top: 50px;
+	left: 70px;
+}
+
+#headerPane {
+	background-color: #444;
+	height: 33px;
+	width: 100%;
+	position: absolute;
+}
+
+#titlePane {
+	width: 120px;
+}
+
+#atsLogo {
+	float: left;
+	position: relative;
+	color: white;
+	text-align: left;
+	font: bold 20px "Arial", "Helvetica";
+}
+
+#systemDescription {
+	float: right;
+	font-size: 75%;
+	color: white;
+	text-align: center;
+	padding-top: 4px;
+	padding-right: 12px;
+}
+
+#userInfo {
+	position: relative;
+	top: 20px;
+	text-align: center;
+}
+
+#groupHistory {
+	position: relative;
+	top: 40px;
+	text-align: center;
+}
+
+/*IE7*/
+table.infinical td.bodyContent div {
+	width: 150px;
+	padding: 0px;
+	margin: 0px;
+}
+
+table.infinical div.divMember {
+	height: 65px;
+}
+
+div.noticeLine {
+	margin: 6px;
+}
+
+a.noticeMessage {
+	padding: 3px;
+}
+
+#newNoticeArea {
+	height: 25px;
+	text-align: center;
+}
+
+a.newNoticeMessage {
+	position: relative;
+	top: 5px; 
+	margin: 3px;
+}
+
+.noticeAvailable {
+	background-color: pink;
+}
+
+a.noticeMessage:link, a.noticeMessage:visited {
+	color: #000;
+	background-color: pink;
+	text-decoration: none;
+}
+
+a.noticeMessage:hover, a.noticeMessage:active {
+	color: #f00;
+	background-color: pink;
+	text-decoration: underline;
+}
+
+h1 {
+	background-color: #CCC;
+	padding: 10px;
+	margin: 10px 0 10px 0;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+h2 {
+	background-color: #EEE;
+	padding: 5px;
+	margin: 10px 0 10px 0;
+	margin: 0;
+}
+
+h1.title {
+	margin: 0 0 10px 0;
+}
+
+/* IE7 */
+html {
+	overflow-y: auto;
+}

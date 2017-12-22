@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="sheepdog">
+
+	<property name="WEB-INF" value="webapp/WEB-INF" />
+	<property name="META-INF" value="webapp/META-INF" />
+	<property name="classes" value="${WEB-INF}/classes" />
+	<property name="lib" value="${WEB-INF}/lib" />
+	<property name="systemname" value="ats-groupwear" />
+
+	<path id="project.classpath">
+		<pathelement path="${classes}" />
+		<pathelement path="bin" />
+		<pathelement location="dependencies/servlet-api.jar" />
+		<pathelement location="dependencies/jsp-api.jar" />
+		<pathelement location="dependencies/authenticator.jar" />
+		<pathelement location="${lib}/substrate.jar" />
+		<pathelement location="${lib}/liverwort.jar" />
+		<pathelement location="${lib}/webkit.jar" />
+		<pathelement location="${lib}/commons-fileupload.jar" />
+	</path>
+
+	<target name="auth-jar">
+		<delete file="${systemname}-auth.jar" />
+		<delete dir="bin" />
+		<mkdir dir="bin" />
+		<javac srcdir="src" destdir="bin" debug="true" optimize="true" deprecation="true" encoding="Windows-31J">
+			<classpath refid="project.classpath" />
+			<include name="**/Role.java" />
+		</javac>
+		<javac srcdir="auth" destdir="bin" debug="true" optimize="true" deprecation="true" encoding="Windows-31J">
+			<classpath refid="project.classpath" />
+			<include name="**/*.java" />
+		</javac>
+		<copy todir="bin">
+			<fileset dir="src" includes="**/Role.java" />
+			<fileset dir="auth" includes="**/*.java" />
+			<fileset dir="auth" includes="jp.ats.authenticator" />
+		</copy>
+		<jar basedir="bin" jarfile="${systemname}-auth.jar" />
+	</target>
+
+	<!-- 全てのjspのプリコンパイルを行う -->
+	<!-- 実行には -Dtomcat="Tomcat6のインストールディレクトリ" パラメータが必要 -->
+	<target name="jspc" if="tomcat">
+		<taskdef classname="org.apache.jasper.JspC" name="jasper">
+			<classpath>
+				<pathelement location="${java.home}/../lib/tools.jar" />
+				<fileset dir="${tomcat}/lib">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${tomcat}/bin">
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</taskdef>
+
+		<delete dir="jspwork/org" />
+
+		<jasper uriroot="webapp" outputDir="jspwork" />
+	</target>
+
+	<target name="war" depends="cleanup, compile">
+		<antcall target="webxml">
+			<param name="type" value="actual" />
+		</antcall>
+		<antcall target="contextxml">
+			<param name="type" value="actual" />
+		</antcall>
+		<war warfile="${systemname}.war" webxml="${WEB-INF}/web.xml" basedir="webapp" />
+		<!-- 設定を残さないように消す -->
+		<delete file="${WEB-INF}/web.xml" />
+		<delete file="${META-INF}/context.xml" />
+	</target>
+
+	<target name="test-war" depends="cleanup, compile">
+		<antcall target="webxml">
+			<param name="type" value="test" />
+		</antcall>
+		<antcall target="contextxml">
+			<param name="type" value="test" />
+		</antcall>
+		<war warfile="${systemname}.war" webxml="${WEB-INF}/web.xml" basedir="webapp" />
+		<!-- 設定を残さないように消す -->
+		<delete file="${WEB-INF}/web.xml" />
+		<delete file="${META-INF}/context.xml" />
+	</target>
+
+	<target name="develop" depends="cleanup, compile">
+		<antcall target="webxml">
+			<param name="type" value="develop" />
+		</antcall>
+	</target>
+
+	<target name="cleanup">
+		<delete dir="${classes}" />
+		<delete file="${systemname}.war" />
+		<delete file="${systemname}-auth.jar" />
+		<delete dir="bin" />
+		<delete dir="jspwork/org" />
+	</target>
+
+	<target name="compile" depends="cleanup">
+		<mkdir dir="${classes}" />
+		<javac srcdir="src" destdir="${classes}" debug="true" optimize="true" deprecation="true" encoding="Windows-31J">
+			<classpath refid="project.classpath" />
+			<include name="**/*.java" />
+		</javac>
+		<copy todir="${classes}">
+			<fileset dir="src" includes="**/*.java" />
+			<fileset dir="src" includes="**/*.properties" />
+			<fileset dir="src" includes="**/*.sql" />
+			<fileset dir="src" includes="**/*.xml" />
+			<fileset dir="src" includes="ColumnRepository" />
+			<fileset dir="src" includes="metadata-extension.xml" />
+		</copy>
+
+		<mkdir dir="bin" />
+		<javac srcdir="tool" destdir="bin" debug="true" optimize="true" deprecation="true" encoding="Windows-31J">
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<target name="webxml">
+		<java classname="build.MyPropertiesReplacer" fork="true" classpathref="project.classpath">
+			<arg file="config/web.xml" />
+			<arg file="${WEB-INF}/web.xml" />
+			<arg file="config/types/${type}" />
+		</java>
+	</target>
+
+	<target name="contextxml">
+		<java classname="build.MyPropertiesReplacer" fork="true" classpathref="project.classpath">
+			<arg file="config/context.xml" />
+			<arg file="${META-INF}/context.xml" />
+			<arg file="config/types/${type}" />
+		</java>
+	</target>
+</project>
